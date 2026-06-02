@@ -20,31 +20,36 @@ const tile = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring' as const, stiffness: 260, damping: 22 },
+    transition: {
+      type: 'spring' as const,
+      stiffness: 260,
+      damping: 22,
+    },
   },
 }
 
-/**
- * Renders the top bento row with a staggered entrance animation.
- * Each tile fades in while translating upward using spring physics —
- * transform + opacity only, zero layout shifts.
- */
 export default function BentoEntrance() {
   return (
-    <motion.div
+    <motion.section
       variants={container}
       initial="hidden"
       animate="show"
       className="grid grid-cols-1 md:grid-cols-3 gap-4"
     >
-      <motion.div variants={tile} className="md:col-span-2">
+      <motion.section
+        variants={tile}
+        className="md:col-span-2"
+      >
         <HeroTile />
-      </motion.div>
+      </motion.section>
 
-      <motion.div variants={tile} className="grid grid-cols-2 md:grid-cols-1 gap-4">
+      <motion.section
+        variants={tile}
+        className="grid grid-cols-2 md:grid-cols-1 gap-4"
+      >
         <StatsTile />
         <ActivityTile />
-      </motion.div>
-    </motion.div>
+      </motion.section>
+    </motion.section>
   )
 }

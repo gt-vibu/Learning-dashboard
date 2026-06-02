@@ -1,37 +1,46 @@
 import { Suspense } from 'react'
 import Sidebar from '@/components/Sidebar'
 import MobileNav from '@/components/MobileNav'
+import HeroTile from '@/components/HeroTile'
+import StatsTile from '@/components/StatsTile'
+import ActivityTile from '@/components/ActivityTile'
 import CoursesSection from '@/components/CoursesSection'
 import CoursesLoading from '@/components/CoursesLoading'
-import BentoEntrance from '@/components/BentoEntrance'
 
 export default function Dashboard() {
   return (
-    <div className="flex h-screen bg-[#0a0a0f] overflow-hidden">
+    <section className="flex h-screen bg-[#0f0f13] overflow-hidden">
       <Sidebar />
 
-      <main className="flex-1 overflow-y-auto pb-20 md:pb-0">
-        <div className="max-w-6xl mx-auto p-4 md:p-6 space-y-4">
+      <main className="flex-1 overflow-y-auto pb-20 md:pb-0 min-w-0">
+        <article className="p-4 md:p-6 space-y-4">
 
-          <BentoEntrance />
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <section className="md:col-span-2 min-h-[180px]">
+              <HeroTile />
+            </section>
+            <section className="grid grid-cols-2 md:grid-cols-1 gap-4">
+              <StatsTile />
+              <ActivityTile />
+            </section>
+          </section>
 
-          {/* courses section */}
           <section>
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="text-sm font-semibold text-[#e8e8f0]">Active Courses</h2>
-              <button className="text-xs text-[#4f8ef7] hover:text-[#7db0fb] transition-colors">
+            <header className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-semibold text-[#e2e2e8]">Active Courses</h2>
+              <button className="text-xs text-[#7c6af7] hover:text-[#a89bf9] transition-colors">
                 View all
               </button>
-            </div>
+            </header>
             <Suspense fallback={<CoursesLoading />}>
               <CoursesSection />
             </Suspense>
           </section>
 
-        </div>
+        </article>
       </main>
 
       <MobileNav />
-    </div>
+    </section>
   )
 }

@@ -5,7 +5,7 @@ A student dashboard built for the Next-Gen Learning Dashboard frontend intern ch
 The project uses a dark-mode Bento Grid layout and fetches live course data from Supabase. The main focus of the project was smooth animations, responsive design, and proper server/client component usage in Next.js App Router.
 
 **Live Demo:** https://learning-dashboard-amber.vercel.app/
-**GitHub Repo:**https://github.com/gt-vibu/learning
+**GitHub Repo:** https://github.com/gt-vibu/Learning-dashboard
 
 ---
 
